@@ -1,4 +1,7 @@
-﻿namespace DiceRollGame;
+﻿namespace DiceRollGame.Game;
+using DiceRollGame.Player;
+using DiceRollGame.Dice;
+using DiceRollGame.UserInterface;
 
 class Game
 {
@@ -15,23 +18,23 @@ class Game
         this.lives = lives;
     }
 
-    public void Play()
+    public void Run()
     {
         do
         {
-            Run();
+            Play();
         }
         while (WantToReplay());
     }
 
-    bool Run()
+    bool Play()
     {
         int answer = dice.Roll();
 
         for (int i = 1; i <= lives; i++)
         {
             int guess = player.Guess(dice.sides);
-            if (IsplayersGuessCorrect(guess, answer))
+            if (IsplayerGuessCorrect(guess, answer))
             {
                 Win();
                 return true;
@@ -46,38 +49,23 @@ class Game
     }
 
     string GuidePlayer(int guess, int answer)
-    {
-        if (guess < answer)
-            return "too small";
-        else
-            return "too big";
-    }
+        => guess < answer ? "too small" : "too big";
 
     bool WantToReplay()
     {
         if (ui is ConsoleUserInterface)
             ui.write("press ENTER to replay");
             var key = Console.ReadKey();
-            if (key.Key == ConsoleKey.Enter)
-                return true;
-            return false;
+            return key.Key == ConsoleKey.Enter;
         throw new NotImplementedException();
     }
 
-    bool IsplayersGuessCorrect(int guess, int answer)
-    {
-        if (guess == answer)
-            return true;
-        return false;
-    }
+    bool IsplayerGuessCorrect(int guess, int answer)
+        => guess == answer;
 
     void Win()
-    {
-        ui.write("you won :)");
-    }
+        => ui.write("you won :)");
 
     void Lose()
-    {
-        ui.write("you lost :(");
-    }
+        => ui.write("you lost :(");
 }

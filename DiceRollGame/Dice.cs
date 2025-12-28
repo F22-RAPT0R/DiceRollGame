@@ -1,8 +1,8 @@
-﻿namespace DiceRollGame;
+﻿namespace DiceRollGame.Dice;
 
 class Dice
 {
-    public int sides {  get; private set; }
+    public int sides {  get; set; }
 
     public Dice(int sides=6)
         => this.sides = sides;

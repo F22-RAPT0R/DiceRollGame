@@ -1,4 +1,5 @@
-﻿namespace DiceRollGame;
+﻿namespace DiceRollGame.Player;
+using DiceRollGame.UserInterface;
 
 class Player
 {
@@ -9,13 +10,12 @@ class Player
 
     public int Guess(int range) // range is Dice.sides
     {
-        do
+        while (true)
         {
-            string input = ui.read("what is your guess?");
+            string? input = ui.read("what is your guess?");
             if (int.TryParse(input, out int guess) && 1 <= guess && guess <= range)
                 return guess;
-            ui.write("invalid input, try again");
+            ui.write("invalid guess, try again");
         }
-        while (true);
     }
 }

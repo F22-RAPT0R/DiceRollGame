@@ -1,5 +1,10 @@
 ﻿namespace DiceRollGame;
 
+using DiceRollGame.UserInterface;
+using DiceRollGame.Player;
+using DiceRollGame.Dice;
+using DiceRollGame.Game;
+
 class Program
 {
     static void Main(string[] args)
@@ -7,7 +12,8 @@ class Program
         IUserInterface ui = new ConsoleUserInterface();
         Player player = new(ui);
         Dice dice = new(6);
-        Game game = new(player, dice, ui, 3);
-        game.Play();
+        int lives = 3;
+        Game game = new(player, dice, ui, lives);
+        game.Run();
     }
 }
