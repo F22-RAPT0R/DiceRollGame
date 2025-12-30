@@ -1,10 +1,5 @@
 ﻿namespace DiceRollGame;
 
-using DiceRollGame.UserInterface;
-using DiceRollGame.Player;
-using DiceRollGame.Dice;
-using DiceRollGame.Game;
-
 class Program
 {
     static void Main(string[] args)

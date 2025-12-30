@@ -1,4 +1,4 @@
-﻿namespace DiceRollGame.UserInterface;
+﻿namespace DiceRollGame;
 
 public class ConsoleUserInterface : IUserInterface
 {

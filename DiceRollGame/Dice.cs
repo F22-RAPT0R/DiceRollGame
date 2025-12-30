@@ -1,4 +1,4 @@
-﻿namespace DiceRollGame.Dice;
+﻿namespace DiceRollGame;
 
 class Dice
 {

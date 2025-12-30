@@ -1,5 +1,4 @@
-﻿namespace DiceRollGame.Player;
-using DiceRollGame.UserInterface;
+﻿namespace DiceRollGame;
 
 class Player
 {

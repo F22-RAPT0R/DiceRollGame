@@ -1,7 +1,4 @@
-﻿namespace DiceRollGame.Game;
-using DiceRollGame.Player;
-using DiceRollGame.Dice;
-using DiceRollGame.UserInterface;
+﻿namespace DiceRollGame;
 
 class Game
 {
